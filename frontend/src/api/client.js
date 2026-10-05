@@ -1,5 +1,6 @@
 const BASE_URL = "/api";
 
+
 async function handleResponse(res) {
   const data = await res.json().catch(() => ({}));
   if (!res.ok) {
