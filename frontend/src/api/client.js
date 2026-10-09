@@ -1,5 +1,8 @@
-const BASE_URL = "/api";
-
+// In production (Render) set VITE_API_URL to the backend URL, e.g.
+// https://rag-backend.onrender.com  (no trailing slash).
+// Locally it is empty, so requests go to "/api" and Vite proxies them.
+const API_ORIGIN = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
+const BASE_URL = `${API_ORIGIN}/api`;
 
 async function handleResponse(res) {
   const data = await res.json().catch(() => ({}));
