@@ -1,11 +1,5 @@
-import path from "path";
-import { pipeline, env } from "@xenova/transformers";
+import { pipeline } from "@xenova/transformers";
 import { config } from "../config/index.js";
-
-// Cache the downloaded model on the persistent disk (when DATA_DIR is a disk)
-// so it isn't re-downloaded on every deploy/restart.
-env.cacheDir = path.join(config.dataDir, "models");
-env.allowLocalModels = false;
 
 /**
  * Singleton wrapper around a local sentence-embedding model
